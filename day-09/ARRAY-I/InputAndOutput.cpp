@@ -3,9 +3,16 @@ using namespace std;
 
 int main () 
 {
-    int arr[5] = {1, 2, 3, 4, 5};
+    int arr[5];
     int size = sizeof(arr) / sizeof(int);
     
+    cout << "Enter 5 elements: ";
+    for(int i = 0; i<=size-1; i++)
+    {
+        cin >> arr[i];
+    }
+    
+    cout << "The elements of the array are: ";
     for(int i = 0; i<=size-1; i++)
     {
         cout << "Element at index " << i << ": " << arr[i] << endl;
