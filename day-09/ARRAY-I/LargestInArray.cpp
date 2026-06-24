@@ -3,14 +3,8 @@ using namespace std;
 
 int main()
 {
-    int arr[10];
+    int arr[10]={5, 2, 9, 1, 5, 6, 3, 7, 8, 4};
     int n = sizeof(arr) / sizeof(arr[0]);
-
-    for(int i = 0; i < n; i++)
-    {
-        cin >> arr[i];
-    }
-
     int largest = arr[0];
 
     for(int i = 1; i < n; i++)
