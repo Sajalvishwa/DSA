@@ -8,6 +8,7 @@ void MaxSubArraySum(int arr[], int n) {
         for (int j = i; j < n; j++) {
             int currentSum = 0;
             for (int k = i; k <= j; k++) {
+                
                 currentSum = currentSum + arr[k];
             }
             cout << currentSum << endl;
@@ -20,7 +21,7 @@ void MaxSubArraySum(int arr[], int n) {
 
 int main() {
     int arr[] = {2, -3, 6, -5, 4, 2};
-    int n = sizeof(arr) / sizeof(arr[0]);
+    int n = sizeof(arr) / sizeof(int);
 
     MaxSubArraySum(arr, n);
     return 0;
