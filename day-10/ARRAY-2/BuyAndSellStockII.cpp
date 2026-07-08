@@ -18,7 +18,7 @@ int maxProfit(int prices[], int n){
         }
     }
 
-    return profit;
+    return profit;  
 }
 
 int main(){
