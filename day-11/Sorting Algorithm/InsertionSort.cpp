@@ -3,28 +3,46 @@ using namespace std;
 
 void InsertionSort(int *arr, int n)
 {
-    for (int i=0; i<n; i++)
+    // i = jis element ko uski sahi position par insert karna hai
+    for (int i = 0; i < n; i++)
     {
+        // Current element ko store kar lo
         int current = arr[i];
-        int pervious = i-1;
-        while (pervious >= 0 && arr[pervious] > current)
+
+        // Current ke left wale element se compare karna start karenge
+        int previous = i - 1;
+
+        // Jab tak previous valid hai aur current se bada hai
+        while (previous >= 0 && arr[previous] > current)
         {
-            swap(arr[pervious], arr[pervious+1]);
-            pervious--;
+            // Bade element ko ek position right shift karo
+            swap(arr[previous], arr[previous + 1]);
+
+            // Ab aur left jaake check karo
+            previous--;
         }
-        arr[pervious+1] = current;
+
+        // Current element ko uski correct position par rakh do
+        arr[previous + 1] = current;
     }
 }
 
-
 int main()
 {
+    // Unsorted array
     int arr[] = {64, 34, 25, 12, 22, 11, 90};
-    int n = sizeof(arr)/sizeof(arr[0]);
+
+    // Array ka size nikalna
+    int n = sizeof(arr) / sizeof(arr[0]);
+
+    // Insertion Sort call
     InsertionSort(arr, n);
+
+    // Sorted array print karna
     for (int i = 0; i < n; i++)
     {
         cout << arr[i] << " ";
     }
+
     return 0;
 }
