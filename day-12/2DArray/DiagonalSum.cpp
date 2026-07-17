@@ -7,13 +7,11 @@ int DiagonalSum(int arr[3][3], int n)
 
     for(int i=0;i<n;i++)
     {
-        for(int j=0;j<n;j++)
-        {
-            if(i==j || (i+j)==n-1)
-            {
-                sum+=arr[i][j];
-            }
-        }
+       sum += arr[i][i]; // Primary diagonal
+       if(i!=n-i-1) // Secondary diagonal
+       {
+           sum += arr[i][n-i-1];
+       }
     }
     cout<<"Sum of diagonal elements is: "<<sum<<endl;
 
