@@ -1,31 +1,55 @@
-#include<iostream>
-#include<cstring>
+#include <iostream>
+#include <string>
+#include <cctype>
 using namespace std;
 
-bool validPalindrome(char str[], int n)
+bool isPalindrome(string s)
 {
-    int start=0;
-    int end = n-1;
+    int start = 0;
+    int end = s.length() - 1;
 
-    while(start < end)
-{
-    if(str[start] != str[end])
+    while (start < end)
     {
-        return false;
+        // Left se special characters skip karo
+        while (start < end && !isalnum(s[start]))
+        {
+            start++;
+        }
+
+        // Right se special characters skip karo
+        while (start < end && !isalnum(s[end]))
+        {
+            end--;
+        }
+
+        // Case ignore karke compare karo
+        if (tolower(s[start]) != tolower(s[end]))
+        {
+            return false;
+        }
+
+        start++;
+        end--;
     }
-    start++;
-    end--;
+
+    return true;
 }
 
-return true;
-}
-
-   
-
-int main ()
+int main()
 {
-    char str[100]="racecar";
-    int n = strlen(str);
-  
-    cout<<validPalindrome(str,n);
+    string s;
+
+    cout << "Enter a string: ";
+    getline(cin, s);
+
+    if (isPalindrome(s))
+    {
+        cout << "Valid Palindrome";
+    }
+    else
+    {
+        cout << "Not a Palindrome";
+    }
+
+    return 0;
 }
